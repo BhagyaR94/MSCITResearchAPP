@@ -21,14 +21,11 @@ export default class StyleSheetFactory {
                 flexDirection: 'row',
                 flex: 0.3,
             },
-            countryCodeContainer: {
+            digitContainer: {
                 display: 'flex',
-                flex: 0.3,
-                justifyContent: 'center',
-            },
-            mobileNumberContainer: {
-                display: 'flex',
-                flex: 0.7,
+                flex: 2,
+                marginLeft: 8,
+                marginRight: 8,
                 justifyContent: 'center',
             },
             buttonContainer: {
@@ -51,7 +48,8 @@ export default class StyleSheetFactory {
                 justifyContent: 'center',
                 alignItems: 'center',
                 marginTop: 24
-            }, bannerContainer: {
+            },
+            countDownContainer: {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',

@@ -25,7 +25,7 @@ class SingleSelect extends Component {
 
     render() {
         let items = this.state.optionItems.map((value, index) => {
-            return <Picker.Item style={{ fontSize: 24 }} key={index} label={value} value={index} />;
+            return <Picker.Item style={styles.itemStyle} key={index} label={value} value={index} />;
         });
 
         return (
@@ -34,13 +34,15 @@ class SingleSelect extends Component {
 
                 <View style={styles.SingleSelectContainer}>
                     <Picker
+                        style={styles.picker}
                         dropdownIconColor='black'
                         dropdownIconRippleColor='green'
                         mode={this.state.mode}
                         selectedValue={this.state.selectedValue}
                         onValueChange={(itemValue, itemIndex) => {
                             this.setSelectedValue(itemValue);
-                        }}>
+                        }}
+                    >
                         {items}
                     </Picker>
                 </View>
@@ -48,7 +50,9 @@ class SingleSelect extends Component {
         );
     }
 
-    componentDidMount() { }
+    componentDidMount() {
+
+    }
 
     setSelectedValue(itemValue) {
         this.setState({ selectedValue: itemValue });

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import * as staticStyles from '../../util/ColorUtil'
 
 export default class StyleSheetFactory {
     static getStyles(props) {
@@ -26,7 +27,7 @@ export default class StyleSheetFactory {
 
             title: {
                 fontFamily: 'tahoma',
-                fontSize: 72,
+                fontSize: staticStyles.appHeadingExtraLarge,
                 textAlign: 'center',
                 textShadowColor: 'rgba(0, 0, 0, 0.75)',
                 textShadowOffset: { width: -1, height: 1 },
@@ -35,7 +36,7 @@ export default class StyleSheetFactory {
 
             subtitle: {
                 fontFamily: 'tahoma',
-                fontSize: 18,
+                fontSize: staticStyles.appHeadingSmall,
                 textAlign: 'center',
                 color: '#009688',
                 fontWeight: 'bold'

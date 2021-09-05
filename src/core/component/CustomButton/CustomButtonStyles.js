@@ -14,7 +14,7 @@ export default class StyleSheetFactory {
                 alignSelf: 'center',
                 justifyContent: 'center',
                 borderRadius: 8,
-                backgroundColor: '#009688'
+                backgroundColor: props.isDisabled ? 'grey' : '#009688'
             },
 
             buttonLabel: {

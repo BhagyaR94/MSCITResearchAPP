@@ -20,6 +20,7 @@
     "npm": "^7.21.1",
     "react": "17.0.2",
     "react-native": "0.65.1",
+    "react-native-fs": "^2.18.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-picker": "^4.3.7",
     "react-native-safe-area-context": "^3.3.0",
