@@ -8,4 +8,4 @@ export const appHeadingLarge = 28;
 export const appHeadingMedium = 20;
 export const appHeadingSmall = 18;
 export const appRegularFontSize = 14;
-export const appLargeFontSize = 16;
+export const appLargeFontSize = 24;

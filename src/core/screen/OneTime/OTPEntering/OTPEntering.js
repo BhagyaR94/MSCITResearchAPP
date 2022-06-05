@@ -8,6 +8,11 @@ import Counter from '../../../component/Counter/Counter';
 let styles = OTPEnteringStyles.getStyleSheet();
 
 let OTPEntering = ({ navigation }) => {
+
+    function onChangeText(value) {
+        console.log(value)
+    }
+
     return (
         <View style={styles.mainContainer}>
             <View style={styles.imageContainer}>
@@ -17,18 +22,18 @@ let OTPEntering = ({ navigation }) => {
                     <Text style={styles.subtitle}>OTP has been sent to your mobile number. Please verify.</Text>
                 </View>
             </View>
-            <View style={styles.formContainer}> 
+            <View style={styles.formContainer}>
                 <View style={styles.digitContainer}>
-                    <CustomTextInput placeholder='' keyType='number-pad'></CustomTextInput>
+                    <CustomTextInput placeholder='' keyType='number-pad' maxLength={1} onChangeText={onChangeText}></CustomTextInput>
                 </View>
                 <View style={styles.digitContainer}>
-                    <CustomTextInput placeholder='' keyType='number-pad'></CustomTextInput>
+                    <CustomTextInput placeholder='' keyType='number-pad' maxLength={1} onChangeText={onChangeText}></CustomTextInput>
                 </View>
                 <View style={styles.digitContainer}>
-                    <CustomTextInput placeholder='' keyType='number-pad'></CustomTextInput>
+                    <CustomTextInput placeholder='' keyType='number-pad' maxLength={1} onChangeText={onChangeText}></CustomTextInput>
                 </View>
                 <View style={styles.digitContainer}>
-                    <CustomTextInput placeholder='' keyType='number-pad'></CustomTextInput>
+                    <CustomTextInput placeholder='' keyType='number-pad' maxLength={1} onChangeText={onChangeText}></CustomTextInput>
                 </View>
             </View>
             <View style={styles.countDownContainer}>
@@ -40,9 +45,5 @@ let OTPEntering = ({ navigation }) => {
         </View>
     );
 };
-
-let calculateCountDown = (navigator) => {
-    
-}
 
 export default OTPEntering;

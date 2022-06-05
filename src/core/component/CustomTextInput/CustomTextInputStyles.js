@@ -21,12 +21,12 @@ export default class StyleSheetFactory {
                 borderStyle: 'solid',
                 color: 'black',
                 borderBottomColor: props.isValid ? '#eceff4' : 'red',
-                backgroundColor: '#eceff4',
+                // backgroundColor: '#eceff4',
             },
 
             textInput: {
                 fontSize: staticStyles.appLargeFontSize,
-                backgroundColor: '#eceff4',
+                // backgroundColor: '#eceff4',
                 textAlign: 'center',
                 color: staticStyles.appPrimayColor
             }

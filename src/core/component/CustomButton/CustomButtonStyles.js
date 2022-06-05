@@ -9,8 +9,8 @@ export default class StyleSheetFactory {
             },
 
             buttonStyles: {
-                height: 64,
-                width: 128,
+                height: 48,
+                width: 256,
                 alignSelf: 'center',
                 justifyContent: 'center',
                 borderRadius: 8,

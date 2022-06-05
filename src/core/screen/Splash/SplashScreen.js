@@ -47,7 +47,8 @@ function animateLogo() {
 function navigateAfterTimeout(navigator) {
     setTimeout(
         function () {
-            navigator.navigate('MobileNumberEntering');
+            // navigator.navigate('MobileNumberEntering');
+            navigator.navigate('SelectCategory');
         }
             .bind(this),
         5000
