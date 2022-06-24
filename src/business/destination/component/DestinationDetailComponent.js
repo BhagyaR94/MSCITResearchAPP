@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Image } from 'react-native'
 import DestinationDetailComponentStyles from './DestinationDetailComponentStyles';
 import * as ColorUtil from '../../../core/util/ColorUtil'
 
@@ -27,15 +27,26 @@ class DestinationDetailComponent extends Component {
 
     render() {
         return (
-            <View>
-                <Text>{this.state.destinationCategory1}</Text>
+            <View style={styles.MainContainer}>
+                <View style={styles.DetailContainer}>
+                    <View style={styles.ImageContainer}>
+                        <Image style={styles.Image} source={require('../../../../res/img/thumbnails/yala.jpg')}></Image>
+                    </View>
+                    <View style={styles.InfoContainer}>
+
+                    </View>
+                </View>
+                <View style={styles.ActionItemsContainer}>
+
+                </View>
+                {/* <Text>{this.state.destinationCategory1}</Text>
                 <Text>{this.state.destinationCategory2}</Text>
                 <Text>{this.state.destinationCategory3}</Text>
                 <Text>{this.state.destinationDurationToCover}</Text>
                 <Text>{this.state.destinationCost}</Text>
                 <Text>{this.state.destinationLatitude}</Text>
                 <Text>{this.state.destinationLongitude}</Text>
-                <Text>{this.state.destinationType}</Text>
+                <Text>{this.state.destinationType}</Text> */}
             </View>
         )
     }

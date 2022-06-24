@@ -10,16 +10,45 @@ export default class StyleSheetFactory {
                 display: 'flex',
                 flexDirection: 'column',
                 flex: 1,
-                paddingTop: 16
+                height: 200
             },
 
-            TextInputStyles: {
-                borderBottomColor: ColorUtil.appPrimayColor,
-                borderBottomWidth: 1,
-                marginLeft: 10,
-                marginRight: 10,
-                fontSize: ColorUtil.appLargeFontSize,
-                color: ColorUtil.appTextPrimaryColor,
+            DetailContainer: {
+                display: 'flex',
+                flex: 0.9,
+                flexDirection: 'row',
+                borderStyle: 'solid',
+                borderWidth: 1
+            },
+
+            ActionItemsContainer: {
+                display: 'flex',
+                flex: 0.1,
+                borderStyle: 'solid',
+                borderWidth: 1
+            },
+
+            ImageContainer: {
+                display: 'flex',
+                flex: 0.4,
+                borderStyle: 'solid',
+                borderWidth: 1,
+                // alignContent: 'center'
+            },
+
+            Image: {
+                display: 'flex',
+                width: 150,
+                height: 150,
+                alignSelf: 'center',
+                justifyContent: 'center'
+            },
+
+            InfoContainer: {
+                display: 'flex',
+                flex: 0.6,
+                borderStyle: 'solid',
+                borderWidth: 1
             },
 
         });

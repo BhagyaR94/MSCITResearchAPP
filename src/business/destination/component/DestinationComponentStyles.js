@@ -10,7 +10,6 @@ export default class StyleSheetFactory {
                 display: 'flex',
                 flexDirection: 'column',
                 flex: 1,
-                paddingTop: 16
             },
 
             TextInputStyles: {
