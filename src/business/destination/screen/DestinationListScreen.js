@@ -3,6 +3,8 @@ import { View, Text } from 'react-native';
 import DestinationListScreenStyles from './DestinationListScreenStyles'
 import DestinationComponent from '../component/DestinationComponent'
 import { HttpUtils } from '../../../core/util/HttpUtils';
+import * as actions from '../actions/index';
+import { connect } from 'react-redux';
 
 let styles = DestinationListScreenStyles.getStyles();
 
@@ -112,4 +114,9 @@ let DestinationListScreen = ({ navigation }) => {
 
 }
 
-export default DestinationListScreen;
+const mapStateToProps = state => {
+    console.log('state here', state);
+    return { destination: state.destination }
+};
+
+export default connect(mapStateToProps, actions)(DestinationListScreen)

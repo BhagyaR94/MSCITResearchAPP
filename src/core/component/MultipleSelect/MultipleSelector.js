@@ -3,62 +3,6 @@ import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
 import StyleSheetFactory from './MultipleSelectorStyles';
 
 const styles = StyleSheetFactory.getStyles({});
-const items = [{
-    id: '92iijs7yta',
-    name: 'Ondo'
-}, {
-    id: 'a0s0a8ssbsd',
-    name: 'Ogun'
-}, {
-    id: '16hbajsabsd',
-    name: 'Calabar'
-}, {
-    id: 'nahs75a5sg',
-    name: 'Lagos'
-}, {
-    id: '667atsas',
-    name: 'Maiduguri'
-}, {
-    id: 'hsyasajs',
-    name: 'Anambra'
-}, {
-    id: 'djsjudksjd',
-    name: 'Benue'
-}, {
-    id: 'sdhyaysdj',
-    name: 'Kaduna'
-}, {
-    id: 'suudydjsjd',
-    name: 'Abuja'
-},{
-    id: '92iijs7ytaa',
-    name: 'Ondo'
-}, {
-    id: 'a0s0a8ssbsdd',
-    name: 'Ogun'
-}, {
-    id: '16hbajsabsdd',
-    name: 'Calabar'
-}, {
-    id: 'nahs75a5sgg',
-    name: 'Lagos'
-}, {
-    id: '667atsass',
-    name: 'Maiduguri'
-}, {
-    id: 'hsyasajss',
-    name: 'Anambra'
-}, {
-    id: 'djsjudksjdd',
-    name: 'Benue'
-}, {
-    id: 'sdhyaysdjj',
-    name: 'Kaduna'
-}, {
-    id: 'suudydjsjdd',
-    name: 'Abuja'
-}
-];
 
 class MultipleSelector extends Component {
 
@@ -81,14 +25,14 @@ class MultipleSelector extends Component {
         return (
             <SafeAreaView>
                 <Text>
-                    {items.length > 0 ? this.renderListOfSelections() : null}
+                    {this.state.length > 0 ? this.renderListOfSelections() : null}
                 </Text>
             </SafeAreaView>
         );
     }
 
     renderListOfSelections = () => {
-        return items.map((item, i) => {
+        return this.state.items.map((item, i) => {
             return (
                 <View key={i}>
                     <TouchableOpacity onPress={() => {
@@ -99,6 +43,11 @@ class MultipleSelector extends Component {
                 </View>
             )
         })
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log('updated', props);
+        return { favoritecolor: props.favcol };
     }
 
 }

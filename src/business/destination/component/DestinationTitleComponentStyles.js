@@ -12,6 +12,7 @@ export default class StyleSheetFactory {
                 flexDirection: 'row',
                 flex: 1,
                 height: 60,
+                backgroundColor: '#008080'
             },
 
             TimeContainer: {

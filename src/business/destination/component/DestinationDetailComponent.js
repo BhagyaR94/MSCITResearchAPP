@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image } from 'react-native'
+import { View, Image, Text, Linking, TouchableOpacity } from 'react-native'
 import DestinationDetailComponentStyles from './DestinationDetailComponentStyles';
 import * as ColorUtil from '../../../core/util/ColorUtil'
 
@@ -33,22 +33,53 @@ class DestinationDetailComponent extends Component {
                         <Image style={styles.Image} source={require('../../../../res/img/thumbnails/yala.jpg')}></Image>
                     </View>
                     <View style={styles.InfoContainer}>
+                        <View style={styles.InfoRow}>
+                            <View style={styles.InfoLabel}>
+                                <Text>Planned Arrival Time</Text>
+                            </View>
+                            <View style={styles.InfoValue}>
+                                <Text>{this.state.destinationCategory1}</Text>
+                                <Text>{this.state.destinationCategory2}</Text>
+                                <Text>{this.state.destinationCategory3}</Text>
+                            </View>
+                        </View>
 
+                        <View style={styles.InfoRow}>
+                            <View style={styles.InfoLabel}>
+                                <Text>Estimated time to cover destination</Text>
+                            </View>
+                            <View style={styles.InfoValue}>
+                                <Text>{this.state.destinationDurationToCover}H</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.InfoRow}>
+                            <View style={styles.InfoLabel}>
+                                <Text>Cost per head</Text>
+                            </View>
+                            <View style={styles.InfoValue}>
+                                <Text>{this.state.destinationCost}</Text>
+                            </View>
+                        </View>
                     </View>
                 </View>
                 <View style={styles.ActionItemsContainer}>
-
+                    <TouchableOpacity onPress={this.openMaps.bind()}>
+                        <Image style={styles.DirectionIcon} source={require('../../../../res/img/pin.png')}></Image>
+                    </TouchableOpacity>
                 </View>
-                {/* <Text>{this.state.destinationCategory1}</Text>
-                <Text>{this.state.destinationCategory2}</Text>
-                <Text>{this.state.destinationCategory3}</Text>
-                <Text>{this.state.destinationDurationToCover}</Text>
-                <Text>{this.state.destinationCost}</Text>
-                <Text>{this.state.destinationLatitude}</Text>
-                <Text>{this.state.destinationLongitude}</Text>
-                <Text>{this.state.destinationType}</Text> */}
             </View>
         )
+    }
+
+    openMaps = () => {
+        const url = Platform.select({
+            ios: "maps:" + this.state.destinationLatitude + "," + this.state.destinationLongitude + "?q=",
+            android: "geo:" + this.state.destinationLatitude + "," + this.state.destinationLongitude + "?q="
+        });
+
+        console.log(url);
+        Linking.openURL(url);
     }
 
 }

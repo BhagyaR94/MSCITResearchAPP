@@ -15,15 +15,11 @@ export default class StyleSheetFactory {
             DayContainer: {
                 display:'flex',
                 flex: 0.3,
-                borderStyle:'solid',
-                borderWidth: 1
             },
 
             DestinationCardContainer: {
                 display:'flex',
                 flex: 0.7,
-                borderStyle:'solid',
-                borderWidth: 1
             }
 
         });

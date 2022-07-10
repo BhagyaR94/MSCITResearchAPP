@@ -1,13 +1,18 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from 'react'
+import { Text, View } from 'react-native';
+import CustomButton from '../../../core/component/CustomButton/CustomButton';
 import TourBudget from '../component/TourBudget';
 import TourDuration from '../component/TourDuration';
 import TourPreferenceScreenStyles from './TourPreferenceStyles';
-import CustomButton from '../../../core/component/CustomButton/CustomButton';
+import { useSelector, useDispatch, useStore } from 'react-redux'
 
-let styles = TourPreferenceScreenStyles.getStyles();
 
 let TourPreference = ({ navigation }) => {
+
+    let styles = TourPreferenceScreenStyles.getStyles();
+
+    let state = useStore().getState();
+    console.log(state);
 
     return (
         <View style={styles.MainContainer}>
