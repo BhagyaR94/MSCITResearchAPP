@@ -1,3 +1,3 @@
 C:
-cd "C:\Users\Bhagya Rathnayake\AppData\Local\Android\Sdk\emulator"
-emulator -avd Pixel_4_API_30
+cd "C:\Users\rathn\AppData\Local\Android\Sdk\emulator"
+emulator -avd Pixel_2_API_30

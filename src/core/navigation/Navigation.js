@@ -6,6 +6,7 @@ import MobileNumberEntering from '../screen/OneTime/MobileNumberEntering/MobileN
 import OTPEntering from '../screen/OneTime/OTPEntering/OTPEntering';
 import SelectCategory from '../../business/category/screen/SelectCategory';
 import TourPreference from '../../business/tour_preference/screen/TourPreference';
+import DestinationList from '../../business/destination/screen/DestinationListScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function navigation() {
                 <Stack.Screen name="OTPEntering" component={OTPEntering} showNavBar={false} />
                 <Stack.Screen name="SelectCategory" component={SelectCategory} showNavBar={false} />
                 <Stack.Screen name="TourPreference" component={TourPreference} showNavBar={false} />
+                <Stack.Screen name="DestinationList" component={DestinationList} showNavBar={false} />
             </Stack.Navigator>
         </NavigationContainer>
     );
