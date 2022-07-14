@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
 import StyleSheetFactory from './MultipleSelectorStyles';
-import { connect } from "react-redux";
-
-const styles = StyleSheetFactory.getStyles({});
+import ListStyleSheetFactory from './ListItemStyles';
 
 class MultipleSelector extends Component {
 
@@ -20,11 +18,21 @@ class MultipleSelector extends Component {
     onSelectedItemsChange = selectedItems => {
         let newElement = this.state.items[selectedItems];
 
-        this.setState(prevState => ({
-            selectedItems: [...prevState.selectedItems, newElement]
-        }), () => {
-            this.state.dispatcher(this.state.onSelect(this.state.selectedItems));
-        });
+        if (this.state.selectedItems.indexOf(newElement) === -1) {
+            this.setState(prevState => ({
+                selectedItems: [...prevState.selectedItems, newElement]
+            }), () => {
+                this.state.dispatcher(this.state.onSelect(this.state.selectedItems));
+            });
+        } else {
+            this.setState({
+                selectedItems: this.state.selectedItems.filter((item) => {
+                    return item !== newElement;
+                })
+            }, () => {
+                this.state.dispatcher(this.state.onSelect(this.state.selectedItems));
+            });
+        }
 
     };
 
@@ -39,17 +47,27 @@ class MultipleSelector extends Component {
     }
 
     renderListOfSelections = () => {
+
         return this.state.items.map((item, i) => {
+
+            let props = {
+                selected: this.state.selectedItems.indexOf(item) !== -1
+            };
+
+            let listItemStyles = ListStyleSheetFactory.getStyles(props);
+
             return (
                 <View key={i}>
                     <TouchableOpacity onPress={(item) => {
                         this.onSelectedItemsChange(i)
                     }} >
-                        <Text style={styles.Item}>{item}</Text>
+                        <Text style={listItemStyles.Item}>{item}</Text>
                     </TouchableOpacity>
                 </View>
-            )
-        })
+            );
+
+        });
+
     }
 
     static getDerivedStateFromProps(props, state) {
