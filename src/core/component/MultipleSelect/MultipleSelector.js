@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity, Image } from 'react-native';
 import StyleSheetFactory from './MultipleSelectorStyles';
 import ListStyleSheetFactory from './ListItemStyles';
+import * as ALL from '../../util/IconUtils';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class MultipleSelector extends Component {
 
@@ -39,9 +41,11 @@ class MultipleSelector extends Component {
     render() {
         return (
             <SafeAreaView>
-                <Text>
-                    {this.state.items.length > 0 ? this.renderListOfSelections() : null}
-                </Text>
+                <ScrollView>
+                    <Text>
+                        {this.state.items.length > 0 ? this.renderListOfSelections() : null}
+                    </Text>
+                </ScrollView>
             </SafeAreaView>
         );
     }
@@ -57,13 +61,14 @@ class MultipleSelector extends Component {
             let listItemStyles = ListStyleSheetFactory.getStyles(props);
 
             return (
-                <View key={i}>
-                    <TouchableOpacity onPress={(item) => {
-                        this.onSelectedItemsChange(i)
-                    }} >
+                <TouchableOpacity onPress={(item) => {
+                    this.onSelectedItemsChange(i)
+                }} >
+                    <View style={listItemStyles.ItemContainer} key={i}>
+                        <Image style={listItemStyles.Icon} source={ALL[`${item.toLowerCase()}`]}></Image>
                         <Text style={listItemStyles.Item}>{item}</Text>
-                    </TouchableOpacity>
-                </View>
+                    </View>
+                </TouchableOpacity>
             );
 
         });

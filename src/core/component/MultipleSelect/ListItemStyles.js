@@ -6,11 +6,27 @@ export default class ListItemStyles {
     static getStyles(props) {
 
         return StyleSheet.create({
-            Item: {
+
+            ItemContainer: {
+                display: 'flex',
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                width: 90,
+                height: 90,
                 borderStyle: 'solid',
+                borderWidth: 0.25,
                 borderRadius: 8,
-                borderWidth: 1,
-                fontSize: 20,
+                marginTop: 2,
+                marginBottom: 2,
+                marginLeft: 2,
+                marginRight: 2,
+                backgroundColor: props.selected ? staticStyles.appPrimayColor : 'transparent',
+                borderColor: props.selected ? staticStyles.appPrimayColor : 'transparent',
+            },
+
+            Item: {
+                fontSize: 10,
                 flex: 1,
                 marginTop: 4,
                 marginBottom: 4,
@@ -18,9 +34,15 @@ export default class ListItemStyles {
                 marginRight: 4,
                 paddingLeft: 8,
                 paddingRight: 8,
-                backgroundColor: props.selected ? 'gold' : staticStyles.appPrimayColor,
-                borderColor: props.selected ? 'gold' : staticStyles.appPrimayColor,
-                color: props.selected ? 'black' : 'white',
+                textAlign: 'center',
+                color: props.selected ? 'white' : 'black',
+                fontWeight: props.selected ? 'bold': 'normal'
+            },
+
+            Icon: {
+                width: 60,
+                height: 60,
+                alignSelf: 'center'
             }
 
         });
