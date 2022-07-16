@@ -6,6 +6,8 @@ import SelectCategoryStyles from './SelectCategoryStyle';
 import { useSelector, useDispatch, useStore } from 'react-redux';
 import { setselectedTravelCategories } from '../slice/categorySlice'
 import { HttpUtils } from '../../../core/util/HttpUtils';
+import * as staticStyles from '../../../core/util/ColorUtil';
+import { BarIndicator } from 'react-native-indicators';
 
 let styles = SelectCategoryStyles.getStyles();
 let selector, navigate;
@@ -17,9 +19,10 @@ let SelectCategory = ({ navigation }) => {
 
     const [result, setResult] = React.useState({});
     const [isLessThanThreeSelected, setIsLessThanThreeSelected] = React.useState({});
+    const [isLoading, setIsLoading] = React.useState({});
 
     React.useEffect(() => {
-        loadDestinationCategories(setResult);
+        loadDestinationCategories(setResult, setIsLoading);
     }, []);
 
     React.useEffect(() => {
@@ -28,24 +31,33 @@ let SelectCategory = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.MainContainer}>
-            <View style={styles.TitleContainer}>
-                <Text style={styles.Title}>What do you prefer to see?</Text>
-            </View>
-            <View style={styles.SelectionContainer}>
-                <MultipleSelector items={result} onSelect={setselectedTravelCategories} dispatcher={useDispatch()}></MultipleSelector>
-            </View>
-            <View style={styles.ButtonContainer}>
-                <CustomButton label={'Next'} isDisabled={isLessThanThreeSelected} onPress={onPress.bind(this)}></CustomButton>
-            </View>
+
+            {isLoading ? <BarIndicator color={staticStyles.appPrimayColor} /> :
+                <View >
+                    <View style={styles.TitleContainer}>
+                        <Text style={styles.Title}>Tell Us What You Prefer</Text>
+                    </View>
+                    <View style={styles.SelectionContainer}>
+                        <MultipleSelector items={result} onSelect={setselectedTravelCategories} dispatcher={useDispatch()}></MultipleSelector>
+                    </View>
+                    <View style={styles.ButtonContainer}>
+                        <CustomButton label={'Next'} isDisabled={isLessThanThreeSelected} onPress={onPress.bind(this)}></CustomButton>
+                    </View>
+                </View>
+            }
         </SafeAreaView>
+
     );
+
 }
 
-function loadDestinationCategories(setResult) {
+
+function loadDestinationCategories(setResult, setIsLoading) {
+    setIsLoading(true);
     new HttpUtils().postRequest('loadDestinationCategories', {}).then((result) => setResult(result.data)).catch((error) => {
         console.log('error', error);
     }).finally(() => {
-
+        setIsLoading(false);
     });
 }
 

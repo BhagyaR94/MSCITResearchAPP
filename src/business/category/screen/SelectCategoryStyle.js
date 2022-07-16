@@ -9,7 +9,7 @@ export default class SelectCategoryStyles {
 
             MainContainer: {
                 display: 'flex',
-                flexDirection: 'column',
+                flexDirection: 'row',
                 flex: 1,
             },
             TitleContainer: {
@@ -21,14 +21,17 @@ export default class SelectCategoryStyles {
             Title: {
                 fontSize: staticStyles.appHeadingLarge,
                 justifyContent: 'center',
-                // fontWeight: 'bold',
                 marginLeft: 8,
+                color: staticStyles.appPrimayColor,
+                textAlign: 'center'
             },
             SelectionContainer: {
                 flex: 0.8,
             },
             ButtonContainer: {
                 flex: 0.1,
+                justifyContent: 'center',
+                alignContent: 'center'
             }
         });
     }
