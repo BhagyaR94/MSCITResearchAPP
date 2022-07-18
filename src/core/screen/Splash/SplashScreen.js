@@ -25,7 +25,7 @@ let SplashScreen = ({ navigation }) => {
         <View style={styleSheet.mainContainer}>
             <View style={styleSheet.logoContainer}>
                 <Animated.Image style={styleSheet.logoStyle} source={require('../../../../res/img/logo.png')} />
-                <Text style={styleSheet.title}>Flacka</Text>
+                <Text style={styleSheet.title}>FLACKA</Text>
                 <Text style={styleSheet.subtitle}>Travel beyond boundaries</Text>
             </View>
         </View>

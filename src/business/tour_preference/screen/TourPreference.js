@@ -22,7 +22,9 @@ let TourPreference = ({ navigation }) => {
 
     return (
         <View style={styles.MainContainer}>
-            <Text style={styles.Title}>Set your Boundaries</Text>
+            <View style={styles.HeadingContainer}>
+                <Text style={styles.Title}>Set your Boundaries</Text>
+            </View>
             <View style={styles.BudgetContainer}>
                 <TourBudget dispatcher={useDispatch()} onValueSet={setTourBudget}></TourBudget>
             </View>
@@ -42,9 +44,9 @@ function onPress() {
 }
 
 function checkIsBudgetAndDurationSet(setIsBudgetAndDurationSet) {
-    if(selector.tourBudget > 0 && selector.tourDuration > 0){
+    if (selector.tourBudget > 0 && selector.tourDuration > 0) {
         setIsBudgetAndDurationSet(true);
-    }else {
+    } else {
         setIsBudgetAndDurationSet(false)
     }
 }

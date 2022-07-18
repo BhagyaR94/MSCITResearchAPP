@@ -9,9 +9,16 @@ export default class SelectCategoryStyles {
 
             MainContainer: {
                 display: 'flex',
-                flexDirection: 'row',
+                flexDirection: 'column',
                 flex: 1,
             },
+
+            UIContainer: {
+                display: 'flex',
+                flexDirection: 'column',
+                flex: 1,
+            },
+
             TitleContainer: {
                 flex: 0.1,
                 display: 'flex',
@@ -31,7 +38,6 @@ export default class SelectCategoryStyles {
             ButtonContainer: {
                 flex: 0.1,
                 justifyContent: 'center',
-                alignContent: 'center'
             }
         });
     }

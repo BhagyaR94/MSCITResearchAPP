@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import CalendarPicker from 'react-native-calendar-picker';
 import TourDurationStyles from './TourDurationStyles';
-import { connect } from "react-redux";
+import * as ColorUtils from './../../../core/util/ColorUtil';
 
 class TourDuration extends Component {
 
@@ -21,15 +21,17 @@ class TourDuration extends Component {
 
         return (
             <View style={styles.MainContainer}>
+                <View style={styles.LabelContainer}>
+                </View>
                 <View style={styles.DatePickerContainer}>
-                    <Text style={styles.DurationLabel}>Duration</Text>
+                    <Text style={styles.DurationLabel}>Tour Duration</Text>
                     <CalendarPicker
                         startFromMonday={true}
                         allowRangeSelection={true}
-                        todayBackgroundColor="#f2e6ff"
-                        selectedDayColor="#7300e6"
+                        todayBackgroundColor="gold"
+                        selectedDayColor={ColorUtils.appPrimayColor}
                         selectedDayTextColor="#FFFFFF"
-                        scaleFactor={400}
+                        scaleFactor={450}
                         onDateChange={this.onDateChange.bind(this)}
                     />
                 </View>

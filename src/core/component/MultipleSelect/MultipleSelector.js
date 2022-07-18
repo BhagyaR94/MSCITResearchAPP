@@ -63,8 +63,8 @@ class MultipleSelector extends Component {
             return (
                 <TouchableOpacity onPress={(item) => {
                     this.onSelectedItemsChange(i)
-                }} >
-                    <View style={listItemStyles.ItemContainer} key={i}>
+                }}  key={i}>
+                    <View style={listItemStyles.ItemContainer}>
                         <Image style={listItemStyles.Icon} source={ALL[`${item.toLowerCase()}`]}></Image>
                         <Text style={listItemStyles.Item}>{item}</Text>
                     </View>
