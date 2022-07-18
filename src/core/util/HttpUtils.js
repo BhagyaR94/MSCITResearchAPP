@@ -2,8 +2,8 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import store from '../store/store';
 
-const SERVER = 'http://192.168.1.16:8080';
-// const SERVER = 'https://research-bhagya.herokuapp.com';
+// const SERVER = 'http://192.168.1.16:8080';
+const SERVER = 'https://research-bhagya.herokuapp.com';
 //make sure that you don't use localhost when working with emulators or external devices as 
 // the localhost is a relative term according to the device that you use.
 
