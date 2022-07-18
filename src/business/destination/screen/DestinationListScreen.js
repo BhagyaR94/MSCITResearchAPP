@@ -5,12 +5,16 @@ import DestinationComponent from '../component/DestinationComponent'
 import DestinationTitleComponent from './../component/DestinationTitleComponent';
 import DestinationDetailComponent from './../component/DestinationDetailComponent';
 import { HttpUtils } from '../../../core/util/HttpUtils';
+import { useSelector, useDispatch, useStore } from 'react-redux';
 
 let styles = DestinationListScreenStyles.getStyles();
+let tourPreferences, tourCategories;
 
 let DestinationListScreen = ({ navigation }) => {
 
     const [destinations, setDestinations] = React.useState({});
+    tourPreferences = useSelector(state => state.tourPreferenceReducer);
+    tourCategories =  useSelector((state) => state.categoryReducer);
 
     React.useEffect(() => {
         loadDestinations(setDestinations);
@@ -30,7 +34,11 @@ let DestinationListScreen = ({ navigation }) => {
 }
 
 function loadDestinations(setDestinations) {
-    new HttpUtils().postRequest('destination', {}).then(result => {
+    new HttpUtils().postRequest('destination', {
+        categories : tourCategories.selectedTravelCategories,
+        durationOfStay: (tourPreferences.tourDuration) * 24,
+        budget: tourPreferences.tourBudget,
+    }).then(result => {
         if (result.data.length > 0) {
             setDestinations(getFormattedDestinationData(result.data));
         }

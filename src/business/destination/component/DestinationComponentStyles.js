@@ -12,14 +12,17 @@ export default class StyleSheetFactory {
                 flex: 1,
             },
 
-            TextInputStyles: {
-                borderBottomColor: ColorUtil.appPrimayColor,
-                borderBottomWidth: 1,
-                marginLeft: 10,
-                marginRight: 10,
-                fontSize: ColorUtil.appLargeFontSize,
-                color: ColorUtil.appTextPrimaryColor,
-            },
+            InnerItemStyles: {
+                backgroundColor: 'transparent',
+                paddingStart: 0,
+                paddingEnd: 0,
+                paddingTop: 0,
+                paddingBottom: 0,
+                marginLeft: 8,
+                marginRight: 8,
+                borderBottomWidth: 0.5,
+                borderBottomColor: '#333'
+            }
 
         });
     }

@@ -9,18 +9,26 @@ export default class StyleSheetFactory {
             MainContainer: {
                 display: 'flex',
                 flexDirection: 'column',
-                flex: 1,
+                flex: 100,
             },
 
             DatePickerContainer: {
                 display: 'flex',
-                flex: 0.6,
+                flex: 95,
+            },
+
+            LabelContainer: {
+                display: 'flex',
+                flex: 5,
             },
 
             DurationLabel: {
                 color: ColorUtils.appTextPrimaryColor,
                 fontSize: ColorUtils.appLargeFontSize,
                 marginLeft: 10,
+                marginBottom: 8,
+                fontSize: 22,
+                textAlign: 'center'
             }
 
         });

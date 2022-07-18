@@ -11,8 +11,10 @@ export default class StyleSheetFactory {
                 display: 'flex',
                 flexDirection: 'row',
                 flex: 1,
-                height: 60,
-                backgroundColor: '#008080'
+                height: 200,
+                backgroundColor: ColorUtil.appTextSecondaryColor,
+                marginTop: 2,
+                marginBottom:2,
             },
 
             TimeContainer: {

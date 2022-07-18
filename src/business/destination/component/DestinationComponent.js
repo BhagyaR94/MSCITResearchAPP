@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Dimensions } from 'react-native'
+import { View } from 'react-native'
 import DestinationTitleComponentStyles from './DestinationComponentStyles';
 import { ExpandableListView } from 'react-native-expandable-listview';
 
@@ -34,13 +34,13 @@ class DestinationComponent extends Component {
                 // defaultLoaderStyles?: ViewStyle; // Set your styles to default loader (only for animated={true})
                 // customLoader?: JSX.Element; Pass your custom loader, while your content is measured and rendered (only for animated={true})
                 // chevronColor="white" // color of the default indicator
-                ExpandableListViewStyles={{ borderTopWidth: 1 }} // styles to expandable listview
-                itemContainerStyle={{ borderBottomWidth: 1, backgroundColor: 'transparent', paddingStart: 0, paddingEnd: 0, paddingTop: 0, paddingBottom: 0 }} // add your styles to all item container of your list
-                renderItemSeparator={true} // true or false, render separator between Items
-                innerItemContainerStyle={{}} // add your styles to all inner item containers of your list
+                // onInnerItemClick={this.handleInnerItemClick}
+                ExpandableListViewStyles={{ }} // styles to expandable listview
+                itemContainerStyle={styles.InnerItemStyles} // add your styles to all item container of your list
+                renderItemSeparator={false} // true or false, render separator between Items
+                innerItemContainerStyle={{ marginLeft: 8, marginRight: 8 }} // add your styles to all inner item containers of your list
                 animated={false} // sets all animations on/off, default on
                 data={this.state.destinations}
-                onInnerItemClick={this.handleInnerItemClick}
                 onItemClick={this.handleItemClick}
             />
         )
@@ -50,9 +50,9 @@ class DestinationComponent extends Component {
 
     };
 
-    handleInnerItemClick({ innerIndex, item, itemIndex }) {
+    // handleInnerItemClick({ innerIndex, item, itemIndex }) {
 
-    };
+    // };
 
     static getDerivedStateFromProps(props, state) {
         return { destinations: props.destinations };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TextInput } from 'react-native'
+import { View, TextInput, Text } from 'react-native'
 import TourBudgetStyles from './TourBudgetStyles';
 import * as ColorUtil from '../../../core/util/ColorUtil'
 
@@ -19,15 +19,20 @@ class TourBudget extends Component {
     render() {
         return (
             <View style={styles.MainContainer}>
-                <TextInput
-                    style={styles.TextInputStyles}
-                    onChangeText={this.onChangeText.bind(this)}
-                    activeUnderlineColor="green"
-                    underlineColor="purple"
-                    keyboardType='decimal-pad'
-                    placeholder='0.00$'
-                    placeholderTextColor='#000'
-                ></TextInput>
+                <View styles={styles.TitleContainer}>
+                    <Text style={styles.TitleStyles}>Budget Per Head</Text>
+                </View>
+                <View styles={styles.InputContainer}>
+                    <TextInput
+                        style={styles.TextInputStyles}
+                        onChangeText={this.onChangeText.bind(this)}
+                        activeUnderlineColor={ColorUtil.appPrimayColor}
+                        underlineColor={ColorUtil.appPrimayColor}
+                        keyboardType='decimal-pad'
+                        placeholder='0.00$'
+                        placeholderTextColor='#000'
+                    ></TextInput>
+                </View>
             </View>
         )
     }
