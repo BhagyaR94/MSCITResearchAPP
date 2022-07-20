@@ -12,6 +12,12 @@ export default class StyleSheetFactory {
                 flex: 1,
             },
 
+            Content: {
+                display: 'flex',
+                flexDirection: 'column',
+                flex: 1,
+            },
+
             DayContainer: {
                 display:'flex',
                 flex: 0.3,
@@ -20,6 +26,12 @@ export default class StyleSheetFactory {
             DestinationCardContainer: {
                 display:'flex',
                 flex: 0.7,
+            },
+
+            Title: {
+                fontSize: 20,
+                justifyContent: 'center',
+                color: 'red'
             }
 
         });
