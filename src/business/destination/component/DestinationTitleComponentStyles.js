@@ -53,34 +53,35 @@ export default class StyleSheetFactory {
 
             DestinationNameContainer: {
                 display: 'flex',
-                flex: 0.5,
+                flex: 0.3,
+                justifyContent: 'center'
             },
 
             DestinationName: {
-                fontSize: 20,
-                fontWeight: 'bold',
-                textAlign: 'center'
+                fontSize: ColorUtil.appHeadingMedium,
+                textAlign: 'center',
+                color: ColorUtil.appPrimayColor
             },
 
             DestinationInfoIconContainer: {
                 display: 'flex',
-                flexDirection: 'row',
-                flex: 0.5,
+                flexDirection: 'column',
+                flex: 0.7,
             },
 
             DestinationCategoryContainer: {
                 display: 'flex',
                 flexDirection: 'row',
-                flex: 0.3,
+                flex: 0.7,
                 justifyContent: 'center',
             },
 
             Category: {
-                backgroundColor: ColorUtil.appPrimayColor,
                 borderRadius: 2,
                 borderStyle: 'solid',
                 borderWidth: 0.1,
-                width: 20,
+                width: 50,
+                height: 50,
                 marginLeft: 2,
                 marginRight: 2,
                 marginBottom: 2,
@@ -92,7 +93,7 @@ export default class StyleSheetFactory {
 
             DestinationCostContainer: {
                 display: 'flex',
-                flex: 0.7,
+                flex: 0.3,
             },
 
             Cost: {

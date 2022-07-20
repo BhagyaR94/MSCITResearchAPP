@@ -6,6 +6,8 @@ import DestinationTitleComponent from './../component/DestinationTitleComponent'
 import DestinationDetailComponent from './../component/DestinationDetailComponent';
 import { HttpUtils } from '../../../core/util/HttpUtils';
 import { useSelector, useDispatch, useStore } from 'react-redux';
+import { BarIndicator } from 'react-native-indicators';
+import * as staticStyles from '../../../core/util/ColorUtil';
 
 let styles = DestinationListScreenStyles.getStyles();
 let tourPreferences, tourCategories;
@@ -13,21 +15,33 @@ let tourPreferences, tourCategories;
 let DestinationListScreen = ({ navigation }) => {
 
     const [destinations, setDestinations] = React.useState({});
+    const [isLoading, setIsLoading] = React.useState(true);
     tourPreferences = useSelector(state => state.tourPreferenceReducer);
-    tourCategories =  useSelector((state) => state.categoryReducer);
+    tourCategories = useSelector((state) => state.categoryReducer);
 
     React.useEffect(() => {
         loadDestinations(setDestinations);
     }, []);
 
+    React.useEffect(() => {
+        if (destinations.length !== 0) {
+            setIsLoading(false)
+        }
+    }, [destinations]);
+
     return (
         <View style={styles.MainContainer}>
-            <View style={styles.DayContainer}>
-                <Text style={styles.Title}>Destination List</Text>
-            </View>
-            <View style={styles.DestinationCardContainer}>
-                <DestinationComponent destinations={destinations}></DestinationComponent>
-            </View>
+            {isLoading ? <BarIndicator color={staticStyles.appPrimayColor} /> :
+                <View style={styles.Content}>
+                    <View style={styles.DayContainer}>
+                        <Text style={styles.Title}>Important Information Will Be Displayd Here Future</Text>
+                    </View>
+                    <View style={styles.DestinationCardContainer}>
+                        <DestinationComponent destinations={destinations}></DestinationComponent>
+                    </View>
+                </View>
+            }
+
         </View>
     );
 
@@ -35,7 +49,7 @@ let DestinationListScreen = ({ navigation }) => {
 
 function loadDestinations(setDestinations) {
     new HttpUtils().postRequest('destination', {
-        categories : tourCategories.selectedTravelCategories,
+        categories: tourCategories.selectedTravelCategories,
         durationOfStay: (tourPreferences.tourDuration) * 24,
         budget: tourPreferences.tourBudget,
     }).then(result => {
@@ -55,7 +69,7 @@ function getFormattedDestinationData(destinations) {
 
         let formattedDestination = {
             customItem: (
-                <DestinationTitleComponent title={destination.destinationName}></DestinationTitleComponent>
+                <DestinationTitleComponent destination={destination}></DestinationTitleComponent>
             ),
             subCategory: [
                 {

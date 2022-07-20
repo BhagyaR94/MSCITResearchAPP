@@ -41,14 +41,14 @@ class DestinationComponent extends Component {
                 innerItemContainerStyle={{ marginLeft: 8, marginRight: 8 }} // add your styles to all inner item containers of your list
                 animated={false} // sets all animations on/off, default on
                 data={this.state.destinations}
-                onItemClick={this.handleItemClick}
+                // onItemClick={this.handleItemClick}
             />
         )
     }
 
-    handleItemClick({ index }) {
+    // handleItemClick({ index }) {
 
-    };
+    // };
 
     // handleInnerItemClick({ innerIndex, item, itemIndex }) {
 
