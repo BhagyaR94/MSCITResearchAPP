@@ -34,6 +34,7 @@ export default class SelectCategoryStyles {
             },
             SelectionContainer: {
                 flex: 0.8,
+                justifyContent: 'center'
             },
             ButtonContainer: {
                 flex: 0.1,
