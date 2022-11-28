@@ -43,6 +43,19 @@ export default class ListItemStyles {
                 width: 60,
                 height: 60,
                 alignSelf: 'center'
+            },
+
+            Rank: {
+                marginLeft: 55,
+                backgroundColor: 'orange',
+                borderStyle: 'solid',
+                borderWidth: 0.3,
+                borderRadius: 30,
+                width:25,
+                height: 25,
+                position: 'absolute',
+                justifyContent: 'center',
+                textAlign: 'center'
             }
 
         });

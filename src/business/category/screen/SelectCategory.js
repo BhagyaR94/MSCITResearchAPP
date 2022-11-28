@@ -39,13 +39,22 @@ let SelectCategory = ({ navigation }) => {
     });
 
     function loadDestinationCategories() {
-        new HttpUtils().postRequest('loadDestinationCategories', {}).then((result) => setResult(result.data)).catch((error) => {
+        new HttpUtils().postRequest('loadDestinationCategories', {}).then((result) => setResult(getFormattedResult(result.data))).catch((error) => {
             console.log('error', error);
         });
     }
 
     function onPress() {
         navigate.navigate('TourPreference')
+    }
+
+    function getFormattedResult(resultsArray){
+        return resultsArray.map(result => {
+            return {
+                title: result,
+                rank: 0
+            }
+        })
     }
 
     return (
