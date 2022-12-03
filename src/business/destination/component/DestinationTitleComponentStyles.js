@@ -16,14 +16,10 @@ export default class StyleSheetFactory {
 
       ThumbnailContainer: {
         flex: 0.4,
-        borderStyle: 'solid',
-        borderWidth: 1,
       },
 
       DetailContainer: {
         flex: 0.6,
-        borderStyle: 'solid',
-        borderWidth: 1,
       },
 
       Thumbnail: {
@@ -38,44 +34,60 @@ export default class StyleSheetFactory {
       },
       TitleContainer: {
         display: 'flex',
-        flex: 0.2,
-        borderStyle: 'solid',
-        borderWidth: 1,
+        flex: 0.3,
+      },
+      DestinationName: {
+        fontSize: ColorUtil.appHeadingMedium,
+        textAlign: 'left',
+        color: ColorUtil.appPrimayColor,
       },
       CostAndDurationContainer: {
         display: 'flex',
         flex: 0.2,
         flexDirection: 'row',
-        borderStyle: 'solid',
-        borderWidth: 1,
       },
       CostContainer: {
         display: 'flex',
-        flex: 0.5,
+        flex: 0.4,
         flexDirection: 'row',
+        textAlign: 'left',
+        alignItems: 'center',
+      },
+      Cost: {
+        backgroundColor: ColorUtil.appPrimayColor,
+        borderRadius: 2,
         borderStyle: 'solid',
-        borderWidth: 1,
+        borderWidth: 0.1,
+        marginLeft: 2,
+        marginRight: 2,
+        marginBottom: 2,
+        marginTop: 2,
+        color: 'white',
+        fontSize: 18,
       },
       DurationContainer: {
         display: 'flex',
-        flex: 0.5,
+        flex: 0.6,
         flexDirection: 'row',
-        borderStyle: 'solid',
-        borderWidth: 1,
+        alignItems: 'center',
+      },
+      DurationLabel: {
+        display: 'flex',
+        flex: 0.5,
+      },
+      DurationValue: {
+        display: 'flex',
+        flex: 0.5,
       },
       CategoryAndPeriodContainer: {
         display: 'flex',
         flex: 0.3,
         flexDirection: 'row',
-        borderStyle: 'solid',
-        borderWidth: 1,
       },
       CategoryContainer: {
         display: 'flex',
-        flex: 0.3,
+        flex: 0.4,
         flexDirection: 'row',
-        borderStyle: 'solid',
-        borderWidth: 1,
       },
       Category: {
         borderRadius: 2,
@@ -93,90 +105,52 @@ export default class StyleSheetFactory {
       },
       PeriodContainer: {
         display: 'flex',
-        flex: 0.7,
+        flex: 0.6,
         flexDirection: 'column',
-        borderStyle: 'solid',
-        borderWidth: 1,
       },
       ArrivalContainer: {
         display: 'flex',
         flex: 0.5,
         flexDirection: 'row',
-        borderStyle: 'solid',
-        borderWidth: 1,
+      },
+      ArrivalLabel: {
+        display: 'flex',
+        flex: 0.7,
+      },
+      ArrivalValue: {
+        display: 'flex',
+        flex: 0.3,
+      },
+      DepartureLabel: {
+        display: 'flex',
+        flex: 0.7,
+      },
+      DepartureValue: {
+        display: 'flex',
+        flex: 0.3,
       },
       DepartureContainer: {
         display: 'flex',
         flex: 0.5,
         flexDirection: 'row',
-        borderStyle: 'solid',
-        borderWidth: 1,
       },
-
-      TimeContainer: {
-        display: 'flex',
-        flex: 0.2,
-        flexDirection: 'column',
-      },
-
-      ArrivalTimeContainer: {
-        display: 'flex',
-        flex: 0.5,
-      },
-
-      ArrivalTime: {
-        fontSize: 18,
-        textAlign: 'center',
-        fontWeight: 'bold',
-      },
-
-      DestinationNameContainer: {
-        display: 'flex',
-        flex: 0.3,
-        justifyContent: 'center',
-      },
-
-      DestinationName: {
-        fontSize: ColorUtil.appHeadingMedium,
-        textAlign: 'center',
-        color: ColorUtil.appPrimayColor,
-      },
-
-      DestinationInfoIconContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        flex: 0.7,
-      },
-
-      DestinationCategoryContainer: {
+      SocialMediaContainer: {
         display: 'flex',
         flexDirection: 'row',
-        flex: 0.7,
-        justifyContent: 'center',
+        flex: 0.2,
+        alignItems: 'center',
+        justifyContent: 'center'
       },
-
-      DestinationCostContainer: {
-        display: 'flex',
-        flex: 0.3,
-      },
-
-      Cost: {
-        backgroundColor: ColorUtil.appPrimayColor,
+      SocialIcon: {
         borderRadius: 2,
-        borderStyle: 'solid',
-        borderWidth: 0.1,
-        marginLeft: 2,
-        marginRight: 2,
+        width: 35,
+        height: 35,
+        marginLeft: 8,
+        marginRight: 8,
         marginBottom: 2,
         marginTop: 2,
-        textAlign: 'center',
         color: 'white',
-        fontSize: 18,
-      },
-
-      StatusContainer: {
-        display: 'flex',
-        flex: 0.1,
+        fontSize: 16,
       },
     });
   }

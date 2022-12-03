@@ -2,8 +2,6 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import DestinationListScreenStyles from './DestinationListScreenStyles'
 import DestinationComponent from '../component/DestinationComponent'
-import DestinationTitleComponent from './../component/DestinationTitleComponent';
-import DestinationDetailComponent from './../component/DestinationDetailComponent';
 import { HttpUtils } from '../../../core/util/HttpUtils';
 import { useSelector, useDispatch, useStore } from 'react-redux';
 import { BarIndicator } from 'react-native-indicators';
@@ -41,7 +39,6 @@ let DestinationListScreen = ({ navigation }) => {
                     </View>
                 </View>
             }
-
         </View>
     );
 
@@ -54,38 +51,11 @@ function loadDestinations(setDestinations) {
         budget: tourPreferences.tourBudget,
     }).then(result => {
         if (result.data.length > 0) {
-            setDestinations(getFormattedDestinationData(result.data));
+            setDestinations(result.data);
         }
     }).catch(error => {
         console.log('error occured', error);
     }).finally();
-}
-
-function getFormattedDestinationData(destinations) {
-
-    let formattedDestinations = [];
-
-    destinations.forEach(destination => {
-
-        let formattedDestination = {
-            customItem: (
-                <DestinationTitleComponent destination={destination}></DestinationTitleComponent>
-            ),
-            subCategory: [
-                {
-                    customInnerItem: (
-                        <DestinationDetailComponent destination={destination}></DestinationDetailComponent>
-                    )
-                }
-            ],
-        }
-
-        formattedDestinations.push(formattedDestination);
-
-    });
-
-    return formattedDestinations;
-
 }
 
 export default DestinationListScreen

@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
-import { View, Image, Text, Linking, TouchableOpacity } from 'react-native'
+import React, { Component } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import DestinationDetailComponentStyles from './DestinationDetailComponentStyles';
-import * as ColorUtil from '../../../core/util/ColorUtil'
 
 let styles = DestinationDetailComponentStyles.getStyles();
 
@@ -70,16 +69,6 @@ class DestinationDetailComponent extends Component {
                 </View>
             </View>
         )
-    }
-
-    openMaps = () => {
-        const url = Platform.select({
-            ios: "maps:" + this.state.destinationLatitude + "," + this.state.destinationLongitude + "?q=",
-            android: "geo:" + this.state.destinationLatitude + "," + this.state.destinationLongitude + "?q="
-        });
-
-        console.log(url);
-        Linking.openURL(url);
     }
 
 }
