@@ -2,26 +2,28 @@ import React from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
 import CustomButton from '../../../core/component/CustomButton/CustomButton';
 import MultipleSelector from '../../../core/component/MultipleSelect/MultipleSelector';
-import SelectCategoryStyles from './SelectCategoryStyle';
+import HomeStyles from './HomeStyles';
 import { useSelector, useDispatch } from 'react-redux';
-import { setselectedTravelCategories } from '../slice/categorySlice'
+// import { setselectedTravelCategories } from '../slice/homeSlice'
 import { HttpUtils } from '../../../core/util/HttpUtils';
 import * as staticStyles from '../../../core/util/ColorUtil';
 import { BarIndicator } from 'react-native-indicators';
+import LabelWithIcon from '../../../core/component/LabelWithIcon/LabelWithIcon';
 
-let styles = SelectCategoryStyles.getStyles();
+let styles = HomeStyles.getStyles();
 let selector, navigate;
 
-let SelectCategory = ({ navigation }) => {
+let Home = ({ navigation }) => {
 
     navigate = navigation;
-    selector = useSelector((state) => state.categoryReducer);
+    // selector = useSelector((state) => state.homeReducer);
 
     const [isLoading, setIsLoading] = React.useState(true);
     const [result, setResult] = React.useState({});
     const [isLessThanThreeSelected, setIsLessThanThreeSelected] = React.useState(true);
+
     React.useEffect(() => {
-        loadDestinationCategories();
+        loadAppMenu();
     }, []);
 
     React.useEffect(() => {
@@ -31,29 +33,29 @@ let SelectCategory = ({ navigation }) => {
     }, [result]);
 
     React.useEffect(() => {
-        if (selector.selectedTravelCategories.length >= 3) {
-            setIsLessThanThreeSelected(false);
-        } else {
-            setIsLessThanThreeSelected(true);
-        }
+        // if (selector.selectedTravelCategories.length >= 3) {
+        //     setIsLessThanThreeSelected(false);
+        // } else {
+        //     setIsLessThanThreeSelected(true);
+        // }
     });
 
-    function loadDestinationCategories() {
-        setIsLoading(true);
-        new HttpUtils().postRequest('loadDestinationCategories', {}).then((result) => setResult(getFormattedResult(result.data))).catch((error) => {
+    function loadAppMenu() {
+        setIsLoading(true)
+        new HttpUtils().postRequest('getAppMenu', {}).then((result) => setResult(getFormattedResult(result.data))).catch((error) => {
             console.log('error', error);
         });
     }
 
     function onPress() {
-        navigate.navigate('TourPreference')
+        navigate.navigate('SelectCategory')
     }
 
-    function getFormattedResult(resultsArray){
+    function getFormattedResult(resultsArray) {
         return resultsArray.map(result => {
             return {
                 title: result.title,
-                icon: result.icon.toLowerCase(),
+                icon: result.icon,
                 isDisabled: result.isDisabled,
                 isHidden: result.isHidden,
                 rank: 0
@@ -66,13 +68,14 @@ let SelectCategory = ({ navigation }) => {
             {isLoading ? <BarIndicator color={staticStyles.appPrimayColor} /> :
                 <View style={styles.UIContainer}>
                     <View style={styles.TitleContainer}>
-                        <Text style={styles.Title}>Tell Us What You Prefer</Text>
+                        <Text style={styles.Title}>Home Here</Text>
                     </View>
                     <View style={styles.SelectionContainer}>
-                        <MultipleSelector items={result} onSelect={setselectedTravelCategories} dispatcher={useDispatch()} rankingEnabled={true}></MultipleSelector>
+                        <MultipleSelector items={result}></MultipleSelector>
                     </View>
                     <View style={styles.ButtonContainer}>
-                        <CustomButton label={'Next'} isDisabled={isLessThanThreeSelected} onPress={onPress.bind(this)}></CustomButton>
+                        {/* <CustomButton label={'Next'} isDisabled={isLessThanThreeSelected} onPress={onPress.bind(this)}></CustomButton> */}
+                        <CustomButton label={'Next'} isDisabled={false} onPress={onPress.bind(this)}></CustomButton>
                     </View>
                 </View>
             }
@@ -82,4 +85,4 @@ let SelectCategory = ({ navigation }) => {
 
 }
 
-export default SelectCategory;
+export default Home;
