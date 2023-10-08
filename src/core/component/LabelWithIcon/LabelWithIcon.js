@@ -24,11 +24,11 @@ class LabelWithIcon extends Component {
         return (
             <View style={styles.MainContainer}>
                 <TouchableOpacity disabled={!this.state.isClickable} style={styles.TouchablesContainer} onPress={this.state.onPress}>
-                    <View style={styles.LabelContainer}>
-                        <Text style={styles.Label}>{this.state.label}</Text>
-                    </View>
                     <View style={styles.IconContainer}>
                         <Image style={styles.Icon} source={require('../../../../res/img/calendar_icon.png')}></Image>
+                    </View>
+                    <View style={styles.LabelContainer}>
+                        <Text style={styles.Label}>{this.state.label}</Text>
                     </View>
                 </TouchableOpacity>
             </View>

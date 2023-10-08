@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {SafeAreaView, View, Text, TouchableOpacity, Image} from 'react-native';
+import React, { Component } from 'react';
+import { SafeAreaView, View, Text, TouchableOpacity, Image } from 'react-native';
 import StyleSheetFactory from './MultipleSelectorStyles';
 import ListStyleSheetFactory from './ListItemStyles';
 import * as ALL from '../../util/IconUtils';
-import {ScrollView} from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class MultipleSelector extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class MultipleSelector extends Component {
       onSelect: props.onSelect,
       dispatcher: props.dispatcher,
       rankList: [],
+      rankingEnabled: props.rankingEnabled || false
     };
   }
 
@@ -96,9 +97,9 @@ class MultipleSelector extends Component {
           <View style={listItemStyles.ItemContainer}>
             <Image
               style={listItemStyles.Icon}
-              source={ALL[`${item.title.toLowerCase()}`]}></Image>
+              source={ALL[`${item.icon}`]}></Image>
             <Text style={listItemStyles.Item}>{item.title}</Text>
-            {this.isSelectedItem(item) ? (
+            {this.state.rankingEnabled && this.isSelectedItem(item) ? (
               <Text style={listItemStyles.Rank}>{item.rank}</Text>
             ) : null}
           </View>
@@ -108,7 +109,7 @@ class MultipleSelector extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    return {items: props.items};
+    return { items: props.items };
   }
 }
 

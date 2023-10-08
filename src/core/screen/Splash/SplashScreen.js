@@ -62,7 +62,7 @@ function animateLogo() {
 function navigateAfterTimeout() {
     setTimeout(
         function () {
-            navigator.navigate('SelectCategory');
+            navigator.navigate('Home');
         }
             .bind(this),
         5000
