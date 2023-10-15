@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
 import CustomButton from '../../../core/component/CustomButton/CustomButton';
-import MultipleSelector from '../../../core/component/MultipleSelect/MultipleSelector';
+import ListSelector from '../../../core/component/ListSelector/ListSelector';
 import SelectCategoryStyles from './SelectCategoryStyle';
 import { useSelector, useDispatch } from 'react-redux';
 import { setselectedTravelCategories } from '../slice/categorySlice'
@@ -49,7 +49,7 @@ let SelectCategory = ({ navigation }) => {
         navigate.navigate('TourPreference')
     }
 
-    function getFormattedResult(resultsArray){
+    function getFormattedResult(resultsArray) {
         return resultsArray.map(result => {
             return {
                 title: result.title,
@@ -69,7 +69,7 @@ let SelectCategory = ({ navigation }) => {
                         <Text style={styles.Title}>Tell Us What You Prefer</Text>
                     </View>
                     <View style={styles.SelectionContainer}>
-                        <MultipleSelector items={result} onSelect={setselectedTravelCategories} dispatcher={useDispatch()} rankingEnabled={true}></MultipleSelector>
+                        <ListSelector items={result} onSelect={setselectedTravelCategories} dispatcher={useDispatch()} rankingEnabled={true} isMultipleSelect={true}></ListSelector>
                     </View>
                     <View style={styles.ButtonContainer}>
                         <CustomButton label={'Next'} isDisabled={isLessThanThreeSelected} onPress={onPress.bind(this)}></CustomButton>

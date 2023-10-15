@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { SafeAreaView, View, Text, TouchableOpacity, Image } from 'react-native';
-import StyleSheetFactory from './MultipleSelectorStyles';
+import StyleSheetFactory from './ListSelectorStyles';
 import ListStyleSheetFactory from './ListItemStyles';
 import * as ALL from '../../util/IconUtils';
 import { ScrollView } from 'react-native-gesture-handler';
 
-class MultipleSelector extends Component {
+class ListSelector extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,11 +14,20 @@ class MultipleSelector extends Component {
       onSelect: props.onSelect,
       dispatcher: props.dispatcher,
       rankList: [],
-      rankingEnabled: props.rankingEnabled || false
+      rankingEnabled: props.rankingEnabled || false,
+      isMultipleSelect: props.isMultipleSelect || false
     };
   }
 
   onSelectedItemsChange = selectedItems => {
+    if (this.state.isMultipleSelect) {
+      this.updateCounts(selectedItems);
+    } else {
+      this.state.onSelect()
+    }
+  };
+
+  updateCounts(selectedItems) {
     let newElement = this.state.items[selectedItems];
 
     if (this.state.selectedItems.indexOf(newElement) === -1) {
@@ -26,7 +35,7 @@ class MultipleSelector extends Component {
     } else {
       this.removeFromSelectedItems(newElement);
     }
-  };
+  }
 
   addToSelectedItems(newElement) {
     this.setState(
@@ -113,4 +122,4 @@ class MultipleSelector extends Component {
   }
 }
 
-export default MultipleSelector;
+export default ListSelector;
