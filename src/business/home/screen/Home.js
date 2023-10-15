@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
 import CustomButton from '../../../core/component/CustomButton/CustomButton';
-import MultipleSelector from '../../../core/component/MultipleSelect/MultipleSelector';
+import ListSelector from '../../../core/component/ListSelector/ListSelector';
 import HomeStyles from './HomeStyles';
 import { useSelector, useDispatch } from 'react-redux';
 // import { setselectedTravelCategories } from '../slice/homeSlice'
@@ -71,7 +71,7 @@ let Home = ({ navigation }) => {
                         <Text style={styles.Title}>Home Here</Text>
                     </View>
                     <View style={styles.SelectionContainer}>
-                        <MultipleSelector items={result}></MultipleSelector>
+                        <ListSelector items={result} onSelect={onPress.bind(this)}></ListSelector>
                     </View>
                     <View style={styles.ButtonContainer}>
                         {/* <CustomButton label={'Next'} isDisabled={isLessThanThreeSelected} onPress={onPress.bind(this)}></CustomButton> */}
